@@ -13,10 +13,10 @@
             <h1 class="header">Wanderlust</h1>
             <div id="loader" class="loader"></div>
             <form class="search_form" onsubmit="return Client.handleSearch(event)">
-                <input class="search_input input_search" type="search" id="location" placeholder="Destination"
-                    required>
+                <input class="search_input input_search" type="search" id="location" placeholder="Destination" required>
                 <label>Arrival date
-                    <input class="search_input input_date" type="date" id="arrival_date" min="2020-09-27" max="2025-12-31" value="2020-09-27">
+                    <input class="search_input input_date" type="date" id="arrival_date" min="2020-09-27"
+                        max="2025-12-31" value="2020-09-27">
                 </label>
                 <input class="search_input input_submit" id="search" type="submit" value="Search">
             </form>
@@ -61,7 +61,7 @@
                 setTimeout(function () {
                     document.getElementById("loader").style.display = "none";
                     document.getElementById('modal').classList.toggle("modal_window");
-                }, 4000)
+                }, 5000)
             });
 
             document.getElementById("close").addEventListener("click", function () {

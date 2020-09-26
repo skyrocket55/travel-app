@@ -26,6 +26,16 @@
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
+
+    // small screens
+    @media (min-width: 300px) and (max-width:600px) {
+        width: 70%;
+    }
+
+    // medium screens
+    @media (min-width: 600px) and (max-width:900px) {
+        width: 50%;
+    }
 }
 
 .modal_info {
@@ -60,18 +70,17 @@
 }
 
 .loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
+    border: 10px solid #f3f3f3;
+    border-radius: 10%;
+    width: 80px;
+    height: 80px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
     position: fixed;
     display: none;
-    top: 12%;
-    left: 30%;
-  }
+    top: 15%;
+    left: 35%;
+}
   
   /* Safari */
 @-webkit-keyframes spin {
@@ -82,34 +91,24 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}   
+}
 
 /* Medium screens */
 @media (min-width: 600px) and (max-width:900px) {
-    .modal-content {
-        width: 80%;
-        transform: translate(-50%, -50%);
-    }
-
     .loader {
-        top: 15%;
-        left: 40%;
+        top: 20%;
+        left: 45%;
     }
 }
 
 /* Large Screens */
 @media (min-width:901px) {
-    .modal-content {
-        width: 30%;
-        transform: translate(-50%, -50%);
-    }
-
     .close {
         font-size: 48px;
     }
 
     .loader {
         top: 25%;
-        left: 45%;
+        left: 47%;
     }
 }
