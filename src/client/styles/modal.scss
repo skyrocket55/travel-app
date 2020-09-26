@@ -1,0 +1,115 @@
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #bfe1e6;
+    margin: auto;
+    padding: 0 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_info {
+    text-align: center;
+    padding-bottom: 20px;
+    &_img {
+        width: 90%;
+        height: 60%;
+        padding: 0 20px;
+    }
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal_window {
+    display: block;
+    opacity: 1;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    display: none;
+    top: 12%;
+    left: 30%;
+  }
+  
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}   
+
+/* Medium screens */
+@media (min-width: 600px) and (max-width:900px) {
+    .modal-content {
+        width: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .loader {
+        top: 15%;
+        left: 40%;
+    }
+}
+
+/* Large Screens */
+@media (min-width:901px) {
+    .modal-content {
+        width: 30%;
+        transform: translate(-50%, -50%);
+    }
+
+    .close {
+        font-size: 48px;
+    }
+
+    .loader {
+        top: 25%;
+        left: 45%;
+    }
+}

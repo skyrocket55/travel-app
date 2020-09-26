@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head>
+
+<body>
+    <main>
+        <section class="search_fields">
+            <h1 class="header">Wanderlust</h1>
+            <div id="loader" class="loader"></div>
+            <form class="search_form" onsubmit="return Client.handleSearch(event)">
+                <input class="search_input input_search" type="search" id="location" placeholder="Destination"
+                    required>
+                <label>Arrival date
+                    <input class="search_input input_date" type="date" id="arrival_date" min="2020-09-27" max="2025-12-31" value="2020-09-27">
+                </label>
+                <input class="search_input input_submit" id="search" type="submit" value="Search">
+            </form>
+        </section>
+
+        <section id="modal" class="modal">
+            <div class="modal_content">
+                <div>
+                    <span id="close" class="close">&times;</span>
+                </div>
+                <div class="modal_info">
+                    <img class="modal_info_img" id="modal_info_img" src="./images/travel.jpg">
+                    <p>
+                    <h2><span class="city">City</span>, <span class="country">Country</span></h2>
+                    <p><b>Weather: </b><span id="high_temp">High:</span><span id="low_temp">, Low:</span>
+                        <span id="weather"></span></p>
+                    <b>Arrival Date: </b><span id="date"></span>
+                    </p>
+                    <p>Your trip <span id="num_days">days</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(register => {
+                    console.log('SW registered: ', register);
+                });
+            });
+        } else {
+            console.log("Service Worker not registered");
+        }
+    </script>
+    <script>
+        // Load and Close modal window
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("search").addEventListener("click", function () {
+                document.getElementById("loader").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("loader").style.display = "none";
+                    document.getElementById('modal').classList.toggle("modal_window");
+                }, 4000)
+            });
+
+            document.getElementById("close").addEventListener("click", function () {
+                document.getElementById('modal').classList.toggle("modal_window");
+            });
+        });
+    </script>
+</body>
+
+</html>
