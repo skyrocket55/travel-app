@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,9 +14,8 @@ module.exports = {
         filename: 'bundle.min.js'
     },
     mode: 'production',
-    devtool: 'source-map',
     optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        minimizer: [new TerserPlugin({}), new OptimizeCssAssetsPlugin({})],
     },
     module: {
         rules: [
@@ -43,15 +43,14 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true
         }),
         new MiniCssExtractPlugin(),
-        new HtmlWebPackPlugin({
+        new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
-        }),
+        })
     ]
 }
